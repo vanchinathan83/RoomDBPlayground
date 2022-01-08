@@ -16,8 +16,8 @@ interface EmployeeDao {
     suspend fun  delete(employee: EmployeeEntity)
 
     @Query("SELECT * from `employee`")
-    suspend fun loadAllEmployees(): Flow<List<EmployeeEntity>>
+    fun loadAllEmployees(): Flow<List<EmployeeEntity>>
 
     @Query("SELECT * from `employee` where id=:id")
-    suspend fun loadEmployeeById(id: Int): Flow<EmployeeEntity>
+    fun loadEmployeeById(id: Int): Flow<EmployeeEntity>
 }
