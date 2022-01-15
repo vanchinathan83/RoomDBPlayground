@@ -7,7 +7,10 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.vanchi.roomdbplayground.databinding.ItemRowBinding
 
-class ItemAdapter(private val items:ArrayList<EmployeeEntity>): RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
+class ItemAdapter(private val items:ArrayList<EmployeeEntity>,
+                  private val updateListener:(id:Int) -> Unit,
+                  private val deleteListener:(id:Int) -> Unit
+): RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
     class ViewHolder(binding: ItemRowBinding): RecyclerView.ViewHolder(binding.root){
         val llMain = binding.llMain
@@ -35,11 +38,11 @@ class ItemAdapter(private val items:ArrayList<EmployeeEntity>): RecyclerView.Ada
         }
 
         holder.ivEdit.setOnClickListener{
-            //updateListener.invoke(item.id)
+            updateListener.invoke(item.id)
         }
 
         holder.ivDelete.setOnClickListener{
-            //deleteListener.invoke(item.id)
+            deleteListener.invoke(item.id)
         }
     }
 

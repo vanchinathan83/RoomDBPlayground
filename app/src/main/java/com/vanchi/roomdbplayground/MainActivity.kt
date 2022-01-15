@@ -48,9 +48,9 @@ class MainActivity : AppCompatActivity() {
 
     fun setUpDateInRecyclerView(employeeList: ArrayList<EmployeeEntity>, employeeDao: EmployeeDao){
         if(employeeList.isNotEmpty()){
-            val itemAdapter = ItemAdapter(employeeList)
+            //val itemAdapter = ItemAdapter(employeeList)
             binding?.rvItemsList?.layoutManager = LinearLayoutManager(this)
-            binding?.rvItemsList?.adapter = itemAdapter
+            //binding?.rvItemsList?.adapter = itemAdapter
             binding?.rvItemsList?.visibility = View.VISIBLE
             binding?.tvNoRecordsAvailable?.visibility = View.GONE
         }else{
